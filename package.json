@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/sz-m/fcc-timestamp-microservice/issues"
   },
-  "homepage": "https://github.com/sz-m/fcc-timestamp-microservice#readme"
+  "homepage": "https://github.com/sz-m/fcc-timestamp-microservice#readme",
+  "scripts": {
+    "start": "node app.js"
+  }
 }
