@@ -1,14 +1,15 @@
 var express = require('express');
-var favicon = require('serve-favicon');
 var jt = require('./jsonTime');
 
 var app = express();
 
-app.use(favicon(__dirname + '/favicon.ico'));
+app.use(express.static('public'));
 
 app.get('/:time', function(req, res){
   if(req.params.time)
     res.json(jt.jsonTime(req.params.time));
+  else
+    res.sendfile('index.html');
 });
 
 app.listen(8080);

@@ -5,7 +5,6 @@
   "main": "app.js",
   "dependencies": {
     "express": "^4.14.0",
-    "serve-favicon": "^2.3.0",
     "strftime": "^0.9.2"
   },
   "repository": {
