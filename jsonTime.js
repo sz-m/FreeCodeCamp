@@ -1,25 +1,29 @@
 var strftime = require('strftime');
 
-function jsonTime(time) {
-  var date = new Date(time);
-  var timezoneOffset = date.getTimezoneOffset() * 60;
+function jsonTime(strTime) {
+ 
+  if(isNaN(Number(strTime))) {
 
-  if(isNaN(date.getTime()))
+    var strDate = new Date(strTime);
+
+    if(isNaN(strDate.getTime()))
+      return {unix: null, natural: null};
+
     return {
-      unix: null,
-      natural: null
+      unix: Math.floor(strDate.getTime() / 1000) - (strDate.getTimezoneOffset() * 60),
+      natural: strftime('%B %d, %Y', new Date(strTime))
     };
 
-  if(time.toString().length === 10 && typeof time === 'number') {
-    time = (time + timezoneOffset) * 1000;
+  } else {
+
+    var numDate = new Date(Number(strTime));
+    var time = (numDate.getTime() + (numDate.getTimezoneOffset() * 60)) * 1000;
+
+    return {
+      unix: strTime,
+      natural: strftime('%B %d, %Y', new Date(time)),
+    };
   }
-
-  date = new Date(time);
-
-  return {
-    unix: Math.floor(date.getTime() / 1000) - timezoneOffset,
-    natural: strftime('%B %d, %Y', date)
-  };
 }
-
+    
 exports.jsonTime = jsonTime;
