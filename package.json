@@ -14,5 +14,9 @@
   "bugs": {
     "url": "https://github.com/sz-m/fcc-file-metadata-microservice/issues"
   },
-  "homepage": "https://github.com/sz-m/fcc-file-metadata-microservice#readme"
+  "homepage": "https://github.com/sz-m/fcc-file-metadata-microservice#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "multer": "^1.2.0"
+  }
 }
