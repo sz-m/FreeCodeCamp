@@ -12,6 +12,7 @@
       <h3>User stories:</h3>
           <ul>1) I can submit a FormData object that includes a file upload.</ul>
           <ul>2) When I submit something, I will receive the file size in bytes within the JSON response.</ul>
+          <ul>3*) When I submit jpeg, I will also receive the part of EXIF data.</ul>
  
       <h3>Use this form:</h3>
         <form action="/file-analysis" method="post" enctype="multipart/form-data">
@@ -20,10 +21,26 @@
         </form>
 
       <h3>Example output:</h3>
-        <code>
+        <pre>
             {
+              "size": 4989
             }
-        </code>
+
+            {
+              "size":32764,
+              "exif":{
+                "Make":"Canon",
+                "Model":"Canon PowerShot S40",
+                "Orientation":1,
+                "XResolution":180,
+                "YResolution":180,
+                "ResolutionUnit":2,
+                "ModifyDate":"2003:12:14 12:01:44",
+                "YCbCrPositioning":1,
+                "ExifOffset":196
+              }
+            }
+        </pre>
 
       <h3>GitHub Repo:</h3>
         <a href="https://github.com/sz-m/fcc-file-metadata-microservice">github.com/sz-m/fcc-header-parser-microservice</a>
