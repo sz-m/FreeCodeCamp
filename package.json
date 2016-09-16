@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/sz-m/fcc-file-metadata-microservice#readme",
   "dependencies": {
+    "exif": "^0.6.0",
     "express": "^4.14.0",
     "multer": "^1.2.0"
   }
